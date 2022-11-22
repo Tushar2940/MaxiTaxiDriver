@@ -1,35 +1,39 @@
-package com.example.maxitaxidriver;
+package com.example.maxitaxidriver.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.maxitaxidriver.R;
+import com.example.maxitaxidriver.Model.ResponseModel;
+
 import java.util.List;
 
-public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.ViewHolder> {
+public class CompleteBookingAdapter extends RecyclerView.Adapter<CompleteBookingAdapter.ViewHolder> {
 
     Context context;
     List<ResponseModel.Responsebody> list;
 
-    public BookingDataAdapter(Context context, List<ResponseModel.Responsebody> list) {
+    public CompleteBookingAdapter(Context context, List<ResponseModel.Responsebody> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public BookingDataAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CompleteBookingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.booking_data_design,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BookingDataAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CompleteBookingAdapter.ViewHolder holder, int position) {
         holder.bookingNo.setText("" + list.get(position).getContactNo());
 
         holder.email.setText("" + list.get(position).getEmail());
@@ -43,13 +47,20 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
         holder.totalTime.setText("" + list.get(position).getTime_to_destination());
         holder.flightNo.setText("" + list.get(position).getFlightno());
         holder.discription.setText("" + list.get(position).getRemarks());
-//        if (list.get(position).getPaymentType().equals("1"))
-//        {
-//            holder.paymentType.setText("Cash");
-//        }else {
-//            holder.paymentType.setText("Card");
-//        }
+        holder.status.setText(""+list.get(position).getStatus());
         holder.pickupTime.setText("" + list.get(position).getTime());
+
+        if (list.get(position).getStatus().equals("1")) {
+            holder.status.setText("Pending");
+        } else if (list.get(position).getStatus().equals("2")){
+            holder.status.setText("Pending");
+        }else if (list.get(position).getStatus().equals("3")){
+            holder.status.setText("Not Confirm");
+        }else
+        {
+            holder.status.setText("Complete");
+        }
+        holder.btnConfirm.setVisibility(View.GONE);
     }
 
     @Override
@@ -58,10 +69,11 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         TextView bookingNo,email,status,date,name,pickup,pickupTime,dropoff,totalPassager,price,totalDistance,totalTime,flightNo,discription,paymentType;
+        Button btnConfirm;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             bookingNo = itemView.findViewById(R.id.bookingNo);
             email = itemView.findViewById(R.id.email);
             date = itemView.findViewById(R.id.date);
@@ -76,6 +88,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
             discription = itemView.findViewById(R.id.discription);
             status = itemView.findViewById(R.id.status);
             pickupTime = itemView.findViewById(R.id.pickupTime);
+            btnConfirm = itemView.findViewById(R.id.btnConfirm);
         }
     }
 }

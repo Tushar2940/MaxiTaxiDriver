@@ -1,4 +1,4 @@
-package com.example.maxitaxidriver;
+package com.example.maxitaxidriver.Model;
 
 import java.util.List;
 

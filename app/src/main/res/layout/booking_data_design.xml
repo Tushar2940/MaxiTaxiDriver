@@ -33,6 +33,7 @@
                     android:layout_weight="0.9"
                     android:gravity="start"
                     android:text="01234567"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
@@ -44,6 +45,7 @@
                     android:layout_weight="0.9"
                     android:gravity="center"
                     android:text="05-08-2022"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
@@ -55,6 +57,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="James"
+                    android:fontFamily="@font/poppins_semibold"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
@@ -168,7 +171,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
-                        android:text="Email"
+                        android:text="Email :"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -177,6 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Jim Carry"
+                        android:fontFamily="@font/poppins_regular"
                         android:layout_marginLeft="5dp"
                         android:textColor="@color/black" />
                 </LinearLayout>
@@ -198,15 +203,17 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Pick Up"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/pickup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Domestic Terminal Domestic Terminal, Auckland 2022, New Zealand"
                         android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Domestic Terminal Domestic Terminal, Auckland 2022, New Zealand"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -227,6 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Drop Off"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -236,6 +244,7 @@
                         android:layout_weight="1"
                         android:text="Downtown Terminal Quay Street, Auckland CBD, Auckland 1010, New Zealand"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -256,6 +265,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Passengers"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -265,6 +275,7 @@
                         android:layout_weight="1"
                         android:text="5"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -285,6 +296,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Price"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -294,6 +306,7 @@
                         android:layout_weight="1"
                         android:text="$3433"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -313,6 +326,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Total Distance"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -322,6 +336,7 @@
                         android:layout_weight="1"
                         android:text="28.9 KM"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -341,6 +356,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Total Time"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -350,6 +366,7 @@
                         android:layout_weight="1"
                         android:text="29 mins"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -369,6 +386,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Pickup Time"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -397,6 +415,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Flight No"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -406,6 +425,7 @@
                         android:layout_weight="1"
                         android:text="Nz630"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -455,6 +475,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Remark"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -463,6 +484,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:text="We have Large ski bag. On the way to the airport there were no vans available and someone called to say they would do the return for $85 if that is still possible? Thanks kate."
                         android:textColor="@color/black" />
 
@@ -485,6 +507,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.4"
                         android:text="Status"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -494,9 +517,20 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="5dp"
                         android:text=""
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="@color/black" />
 
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Done"
+                    android:background="@drawable/button_bg_rounded"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
