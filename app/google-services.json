@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1086485585785",
+    "project_id": "maxitaxi-driver-1df8e",
+    "storage_bucket": "maxitaxi-driver-1df8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086485585785:android:05dfca8582a5cf5cc359a8",
+        "android_client_info": {
+          "package_name": "com.example.maxitaxidriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086485585785-hic3sp0c02qn56f0s866gl4tvp8aur0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWaApIXG4j7MDIFkwdD3yj5ZGnvj3Zm2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086485585785-hic3sp0c02qn56f0s866gl4tvp8aur0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

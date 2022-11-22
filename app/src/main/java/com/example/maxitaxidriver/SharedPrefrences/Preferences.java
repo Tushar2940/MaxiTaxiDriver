@@ -7,6 +7,8 @@ public class Preferences {
 
     public static final String KEY_LOGIN = "KEY_LOGIN";
     public static final String DRIVER_ID = "DriverID";
+    public static final String KEY_FIRE_NOTIFICATION = "KEY_FIRE_NOTIFICATION";
+    public static final String TOKEN = "TOKEN";
 
 
     private static final String PREF_NAME = "com.example.maxitaxidriver";
