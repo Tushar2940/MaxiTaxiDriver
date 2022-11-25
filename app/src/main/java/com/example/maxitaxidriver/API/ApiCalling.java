@@ -17,14 +17,15 @@ public interface ApiCalling {
     @POST(ApiConstant.getBooking)
     Call<ResponseModel> getBookingDetail(@Query("DriverID") int DriverID);
 
-    @POST(ApiConstant.getCompleteBookingByDriver)
-    Call<ResponseModel> getCompleteBookingDetail(@Query("DriverID") int DriverID);
-
-    @POST(ApiConstant.saveStatus)
-    Call<Response> saveStatus(@Query("bookingId") int bookingId);
 
     @POST(ApiConstant.DriverCancel)
     Call<Response> driverCancel(@Query("bookingId") int bookingId,
                                 @Query("reason") String reason,
                                 @Query("DriverID") int DriverID);
+
+    @POST(ApiConstant.saveStatus)
+    Call<Response> saveStatus(@Query("bookingId") int bookingId);
+
+    @POST(ApiConstant.getCompleteBookingByDriver)
+    Call<ResponseModel> getCompleteBookingDetail(@Query("DriverID") int DriverID);
 }
