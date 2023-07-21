@@ -25,7 +25,7 @@ public interface ApiCalling {
                                 @Query("DriverID") int DriverID);
 
     @POST(ApiConstant.saveStatus)
-    Call<Response> saveStatus(@Query("bookingId") int bookingId);
+    Call<Response> saveStatus(@Query("bookingId") int bookingId,@Query("DriverID") int DriverID);
 
     @POST(ApiConstant.getCompleteBookingByDriver)
     Call<ResponseModel> getCompleteBookingDetail(@Query("DriverID") int DriverID);

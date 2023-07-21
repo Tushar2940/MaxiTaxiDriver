@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.maxitaxidriver.R;
 import com.example.maxitaxidriver.Model.ResponseModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class CompleteBookingAdapter extends RecyclerView.Adapter<CompleteBookingAdapter.ViewHolder> {
@@ -38,7 +41,17 @@ public class CompleteBookingAdapter extends RecyclerView.Adapter<CompleteBooking
         holder.bookingNo.setText("" + list.get(position).getContactNo());
 
         holder.email.setText("" + list.get(position).getEmail());
-        holder.date.setText("" + list.get(position).getDate());
+        String dt = list.get(position).getDate().toString().replace("T00:00:00","");
+        SimpleDateFormat dateFormatprev = new SimpleDateFormat("yyyy-MM-dd");
+        Date d = null;
+        try {
+            d = dateFormatprev.parse(dt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String changedDate = dateFormat.format(d);
+        holder.date.setText("" + changedDate);
         holder.name.setText("" + list.get(position).getName());
         holder.pickup.setText("" + list.get(position).getPick_Up_Address());
         holder.dropoff.setText("" + list.get(position).getDrop_Off_Address());

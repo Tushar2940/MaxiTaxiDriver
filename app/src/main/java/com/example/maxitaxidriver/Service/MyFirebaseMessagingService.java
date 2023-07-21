@@ -50,20 +50,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void
     onMessageReceived(RemoteMessage remoteMessage) {
 
-//        Map<String,String> data = remoteMessage.getData();
-//        String title = data.get("title");
-//        String body = data.get("body");
-       /* try {
-            JSONObject json = new JSONObject(remoteMessage.getData().toString());
-            JSONObject data = json.getJSONObject("data");
-            String title = data.getString("title");
-            String body = data.getString("body");
+        Map<String,String> data = remoteMessage.getData();
+        String title = data.get("title");
+        String body = data.get("body");
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
-        addNotification(remoteMessage.getNotification().getTitle(),
-                remoteMessage.getNotification().getBody());
+        addNotification(/*remoteMessage.getNotification().getTitle(),
+                remoteMessage.getNotification().getBody()*/title,body);
 
     }
 
