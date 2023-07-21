@@ -25,12 +25,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.maxitaxidriver.API.ApiCalling;
 import com.example.maxitaxidriver.CustomProgressDialog;
+import com.example.maxitaxidriver.MainActivity;
 import com.example.maxitaxidriver.MyApplication;
 import com.example.maxitaxidriver.R;
 import com.example.maxitaxidriver.Model.ResponseModel;
 import com.example.maxitaxidriver.SharedPrefrences.Preferences;
 import com.google.gson.Gson;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -61,7 +65,17 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
         holder.bookingNo.setText("" + list.get(position).getContactNo());
 
         holder.email.setText("" + list.get(position).getEmail());
-        holder.date.setText("" + list.get(position).getDate());
+        String dt = list.get(position).getDate().toString().replace("T00:00:00","");
+        SimpleDateFormat dateFormatprev = new SimpleDateFormat("yyyy-MM-dd");
+        Date d = null;
+        try {
+            d = dateFormatprev.parse(dt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String changedDate = dateFormat.format(d);
+        holder.date.setText("" + changedDate);
         holder.name.setText("" + list.get(position).getName());
         holder.pickup.setText("" + list.get(position).getPick_Up_Address());
         holder.dropoff.setText("" + list.get(position).getDrop_Off_Address());
@@ -83,6 +97,9 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
             holder.status.setText("Complete");
         }
 
+        holder.btnConfirm.setText("Finish Job");
+        holder.btnNotDone.setVisibility(View.GONE);
+
         holder.btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +110,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
                 );
                 builder.setView(view1);
                 ((TextView) view1.findViewById(R.id.textTitle)).setText("Warning");
-                ((TextView) view1.findViewById(R.id.textMessage)).setText("Are You sure this Booking is Done.");
+                ((TextView) view1.findViewById(R.id.textMessage)).setText("Are You sure You Finish This Job");
                 ((Button) view1.findViewById(R.id.buttonYes)).setText("Yes");
                 ((Button) view1.findViewById(R.id.buttonNo)).setText("No");
                 ((ImageView) view1.findViewById(R.id.imageIcon)).setImageResource(R.drawable.warning);
@@ -105,7 +122,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
                     public void onClick(View view) {
                         alertDialog.dismiss();
                         progressDialog.show();
-                        Call<com.example.maxitaxidriver.Model.Response> call = apiCalling.saveStatus(list.get(position).getId());
+                        Call<com.example.maxitaxidriver.Model.Response> call = apiCalling.saveStatus(list.get(position).getId(),Preferences.getInstance(context).getInt(Preferences.DRIVER_ID));
                         call.enqueue(new Callback<com.example.maxitaxidriver.Model.Response>() {
                             @Override
                             public void onResponse(Call<com.example.maxitaxidriver.Model.Response> call, retrofit2.Response<com.example.maxitaxidriver.Model.Response> response) {
@@ -114,7 +131,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
                                     if (model.isStatus()) {
                                         progressDialog.dismiss();
                                         list.remove(position);
-                                        notifyItemChanged(position);
+                                        notifyDataSetChanged();
                                         Toast.makeText(context, "" + model.getMessage(), Toast.LENGTH_SHORT).show();
                                     } else {
                                         progressDialog.dismiss();
@@ -151,7 +168,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
             }
         });
 
-        holder.btnNotDone.setOnClickListener(new View.OnClickListener() {
+        /*holder.btnNotDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(context);
@@ -178,7 +195,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
                                         if (model.isStatus()) {
                                             progressDialog.dismiss();
                                             list.remove(position);
-                                            notifyItemChanged(position);
+                                            notifyDataSetChanged();
                                             dialog.dismiss();
                                             Toast.makeText(context, "" + model.getMessage(), Toast.LENGTH_SHORT).show();
                                         } else {
@@ -207,7 +224,7 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
                 dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
                 dialog.getWindow().setGravity(Gravity.CENTER);
             }
-        });
+        });*/
     }
 
     @Override
@@ -244,5 +261,15 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
             apiCalling = MyApplication.getRetrofit().create(ApiCalling.class);
             progressDialog = new CustomProgressDialog(context);
         }
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 }

@@ -534,7 +534,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="Done"
+                    android:text="Confirm"
                     android:background="@drawable/button_bg_rounded"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
