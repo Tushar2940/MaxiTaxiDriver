@@ -49,12 +49,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pending" />
+            android:text="Future Job" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Complete"/>
+            android:text="All Job"/>
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

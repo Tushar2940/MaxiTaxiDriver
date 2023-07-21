@@ -54,6 +54,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String title = data.get("title");
         String body = data.get("body");
 
+        Log.e("noti msg", title + " " + body);
+
         addNotification(/*remoteMessage.getNotification().getTitle(),
                 remoteMessage.getNotification().getBody()*/title,body);
 

@@ -93,7 +93,10 @@ public class BookingDataAdapter extends RecyclerView.Adapter<BookingDataAdapter.
             holder.status.setText("Pending");
         } else if (list.get(position).getStatus().equals("3")) {
             holder.status.setText("Not Confirm");
-        } else {
+        } else if (list.get(position).getStatus().equals("7")) {
+            holder.status.setText("Pending");
+        }
+        else {
             holder.status.setText("Complete");
         }
 
